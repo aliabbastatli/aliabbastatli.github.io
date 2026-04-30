@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Abbas Tatlı - Bilgisayar Mühendisi CV</title>
+    <title>Ali Abbas Tatlı - CV / Resume</title>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,7 +69,7 @@
             background: #475569;
         }
 
-        /* Utility for timeline line */
+        /* Timeline line */
         .timeline-line::before {
             content: '';
             position: absolute;
@@ -81,22 +81,35 @@
             z-index: 0;
         }
         
-        /* Glassmorphism utility */
+        /* Glassmorphism */
         .glass {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
+
+        /* Language Toggle Transition */
+        .lang-content {
+            transition: opacity 0.3s ease-in-out;
+        }
     </style>
 </head>
-<body class="bg-dark text-slate-300 antialiased selection:bg-accent selection:text-white">
+<body class="bg-dark text-slate-300 antialiased selection:bg-accent selection:text-white relative">
 
     <!-- Background Decoration -->
     <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob"></div>
         <div class="absolute top-0 right-1/4 w-96 h-96 bg-accent/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Language Toggle Button -->
+    <div class="fixed top-6 right-6 z-50">
+        <div class="flex bg-card rounded-full p-1 border border-slate-700 shadow-lg">
+            <button onclick="switchLanguage('tr')" id="btn-tr" class="px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300 bg-primary text-white shadow-md">TR</button>
+            <button onclick="switchLanguage('en')" id="btn-en" class="px-4 py-1.5 rounded-full text-sm font-bold transition-all duration-300 text-slate-400 hover:text-white">EN</button>
+        </div>
     </div>
 
     <!-- Main Container -->
@@ -113,19 +126,28 @@
             <!-- Info -->
             <div class="text-center md:text-left flex-1">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-2 tracking-tight">Ali Abbas Tatlı</h1>
-                <h2 class="text-xl md:text-2xl text-accent font-semibold mb-6">Bilgisayar Mühendisi</h2>
+                <h2 class="text-xl md:text-2xl text-accent font-semibold mb-6">
+                    <span class="lang-tr">Bilgisayar Mühendisi</span>
+                    <span class="lang-en hidden">Computer Engineer</span>
+                </h2>
                 
                 <!-- Contact Links -->
                 <div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm">
                     <a href="mailto:aliabbastatli@yandex.com" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-primary hover:text-white transition-all duration-300 border border-slate-700 group">
                         <i class="fa-solid fa-envelope group-hover:animate-bounce"></i>
-                        <span class="hidden sm:inline">E-mail</span>
+                        <span class="hidden sm:inline">
+                            <span class="lang-tr">E-mail</span>
+                            <span class="lang-en hidden">E-mail</span>
+                        </span>
                     </a>
                     <a href="tel:+905068281343" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-primary hover:text-white transition-all duration-300 border border-slate-700">
                         <i class="fa-solid fa-phone"></i>
-                        <span class="hidden sm:inline">Telefon</span>
+                        <span class="hidden sm:inline">
+                            <span class="lang-tr">Telefon</span>
+                            <span class="lang-en hidden">Phone</span>
+                        </span>
                     </a>
-                    <a href="https://linkedin.com/in/aliabbastatli/" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all duration-300 border border-slate-700">
+                    <a href="https://tr.linkedin.com/in/aliabbastatli" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all duration-300 border border-slate-700">
                         <i class="fa-brands fa-linkedin"></i>
                         <span class="hidden sm:inline">LinkedIn</span>
                     </a>
@@ -135,7 +157,9 @@
                     </a>
                 </div>
                 <div class="mt-4 flex justify-center md:justify-start text-slate-400 text-sm">
-                    <i class="fa-solid fa-location-dot mr-2 text-accent"></i> Ankara, Türkiye
+                    <i class="fa-solid fa-location-dot mr-2 text-accent"></i> 
+                    <span class="lang-tr">Ankara, Türkiye</span>
+                    <span class="lang-en hidden">Ankara, Turkey</span>
                 </div>
             </div>
         </header>
@@ -150,10 +174,16 @@
                     <span class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center text-primary">
                         <i class="fa-solid fa-quote-left text-sm"></i>
                     </span>
-                    Özet
+                    <span class="lang-tr">Özet</span>
+                    <span class="lang-en hidden">Summary</span>
                 </h3>
-                <p class="leading-relaxed text-slate-300 text-lg">
-                    Web uygulamaları için backend servislerinde uzmanlaşmış, çok yönlü bir yazılım geliştiricisiyim. Hem mikroservis hem de monolitik mimarilerde deneyim sahibiyim. Disiplinli bir çalışma mentalitesine, farklı ortamlara hızla uyum sağlama yeteneğine ve proaktif bir yaklaşıma sahibim, bu sayede verimli çözümler sunabiliyorum. Daha önce e-ticaret, sağlık ve tekstil üzerine çalışan firmalarda çeşitli tecrübeler edindim, bu da sektörler arası etkili katkılar sağlamama olanak tanıyor. Bulunduğum projelerde Java Spring Boot, Python Django, ReactJS gibi teknolojilerle çalıştım. Takım liderliği görevi üstlendim, birden fazla takımı yönettim ve aynı zamanda mentörlük de yaptım.
+                <p class="leading-relaxed text-slate-300 text-lg lang-content">
+                    <span class="lang-tr">
+                        Web uygulamaları için backend servislerinde uzmanlaşmış, çok yönlü bir yazılım geliştiricisiyim. Hem mikroservis hem de monolitik mimarilerde deneyim sahibiyim. Disiplinli bir çalışma mentalitesine, farklı ortamlara hızla uyum sağlama yeteneğine ve proaktif bir yaklaşıma sahibim, bu sayede verimli çözümler sunabiliyorum. Daha önce e-ticaret, sağlık ve tekstil üzerine çalışan firmalarda çeşitli tecrübeler edindim, bu da sektörler arası etkili katkılar sağlamama olanak tanıyor. Bulunduğum projelerde Java Spring Boot, Python Django, ReactJS gibi teknolojilerle çalıştım. Takım liderliği görevi üstlendim, birden fazla takımı yönettim ve aynı zamanda mentörlük de yaptım.
+                    </span>
+                    <span class="lang-en hidden">
+                        I am a versatile software developer specialized in backend services for web applications. I have experience in both microservices and monolithic architectures. With a disciplined work mentality, the ability to adapt quickly to different environments, and a proactive approach, I am able to provide efficient solutions. I have gained experience in companies working on e-commerce, healthcare, and textiles, which allows me to make effective contributions across sectors. I have worked with technologies such as Java Spring Boot, Python Django, and ReactJS. I have taken on team leadership duties, managed multiple teams, and provided mentorship.
+                    </span>
                 </p>
             </div>
         </section>
@@ -161,13 +191,18 @@
         <!-- Skills Section -->
         <section class="mb-16 animate-fade-in-up" style="animation-delay: 0.2s;">
             <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <i class="fa-solid fa-microchip text-accent"></i> Teknik Yetenekler
+                <i class="fa-solid fa-microchip text-accent"></i> 
+                <span class="lang-tr">Teknik Yetenekler</span>
+                <span class="lang-en hidden">Technical Skills</span>
             </h3>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Programming & Frameworks -->
                 <div class="bg-card p-6 rounded-xl border border-slate-700 hover:border-primary transition-colors duration-300">
-                    <h4 class="text-lg font-semibold text-white mb-4 border-b border-slate-700 pb-2">Programlama & Frameworks</h4>
+                    <h4 class="text-lg font-semibold text-white mb-4 border-b border-slate-700 pb-2">
+                        <span class="lang-tr">Programlama & Frameworks</span>
+                        <span class="lang-en hidden">Programming & Frameworks</span>
+                    </h4>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 bg-slate-700 rounded-md text-sm hover:bg-primary hover:text-white transition-colors cursor-default">Java</span>
                         <span class="px-3 py-1 bg-slate-700 rounded-md text-sm hover:bg-primary hover:text-white transition-colors cursor-default">Spring Boot</span>
@@ -183,7 +218,10 @@
 
                 <!-- Database & DevOps & Tools -->
                 <div class="bg-card p-6 rounded-xl border border-slate-700 hover:border-accent transition-colors duration-300">
-                    <h4 class="text-lg font-semibold text-white mb-4 border-b border-slate-700 pb-2">Veritabanı, DevOps & Araçlar</h4>
+                    <h4 class="text-lg font-semibold text-white mb-4 border-b border-slate-700 pb-2">
+                        <span class="lang-tr">Veritabanı, DevOps & Araçlar</span>
+                        <span class="lang-en hidden">Database, DevOps & Tools</span>
+                    </h4>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 bg-slate-700 rounded-md text-sm hover:bg-accent hover:text-dark transition-colors cursor-default">PostgreSQL</span>
                         <span class="px-3 py-1 bg-slate-700 rounded-md text-sm hover:bg-accent hover:text-dark transition-colors cursor-default">MySQL</span>
@@ -205,25 +243,31 @@
         <!-- Experience Section (Timeline) -->
         <section class="mb-16 animate-fade-in-up" style="animation-delay: 0.3s;">
             <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                <i class="fa-solid fa-briefcase text-primary"></i> İş Tecrübesi
+                <i class="fa-solid fa-briefcase text-primary"></i> 
+                <span class="lang-tr">İş Tecrübesi</span>
+                <span class="lang-en hidden">Work Experience</span>
             </h3>
             
             <div class="relative timeline-line pl-4 md:pl-0">
                 
                 <!-- Job 1 -->
                 <div class="relative mb-12 md:pl-12 group">
-                    <!-- Timeline Dot -->
                     <div class="absolute left-[11px] top-1 w-3 h-3 md:left-1/2 md:-ml-[5px] bg-card border-2 border-primary rounded-full z-10 group-hover:bg-primary transition-colors duration-300 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                    <!-- Content -->
                     <div class="md:w-[calc(50%-2rem)] md:ml-auto bg-card p-6 rounded-xl border border-slate-700 shadow-lg transform transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/20 hover:border-primary">
                         <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                            <h4 class="text-xl font-bold text-white">SESASIS Bilgi Teknolojileri A.Ş.</h4>
-                            <span class="text-accent text-sm font-medium bg-slate-900/50 px-2 py-1 rounded">Nisan 2026 – Devam Ediyor</span>
+                            <h4 class="text-xl font-bold text-white">SESASIS <span class="lang-tr">Bilgi Teknolojileri A.Ş.</span><span class="lang-en hidden">Information Technologies Inc.</span></h4>
+                            <span class="text-accent text-sm font-medium bg-slate-900/50 px-2 py-1 rounded">
+                                <span class="lang-tr">Nisan 2026 – Devam Ediyor</span>
+                                <span class="lang-en hidden">April 2026 – Present</span>
+                            </span>
                         </div>
                         <p class="text-primary font-medium mb-4">Full Stack Developer</p>
                         <ul class="list-disc list-outside ml-4 space-y-2 text-slate-400 text-sm">
-                            <li>Sosyal Güvenlik Kurumu (SGK) MOSIP projesinin mikroservice dönüşümü olan MOSIP-V2 projesinde çalışmaktayım.</li>
-                            <li>Proje kapsamında Microservice mimari ile birlikte Java Spring Boot (backend), ReactJs(frontend), PostgreSQL(DB), Docker, Git, Kafka, Antigravity AI gibi teknolojilerle çalışmaktayım.</li>
+                            <li class="lang-tr">Sosyal Güvenlik Kurumu (SGK) MOSIP projesinin mikroservice dönüşümü olan MOSIP-V2 projesinde çalışmaktayım.</li>
+                            <li class="lang-en hidden">Currently working on the MOSIP-V2 project, which is the microservice transformation of the Social Security Institution (SGK) MOSIP project.</li>
+                            
+                            <li class="lang-tr">Proje kapsamında Microservice mimari ile birlikte Java Spring Boot (backend), ReactJs(frontend), PostgreSQL(DB), Docker, Git, Kafka, Antigravity AI gibi teknolojilerle çalışmaktayım.</li>
+                            <li class="lang-en hidden">Working with technologies such as Java Spring Boot (backend), ReactJs (frontend), PostgreSQL (DB), Docker, Git, Kafka, Antigravity AI under Microservice architecture within the scope of the project.</li>
                         </ul>
                     </div>
                 </div>
@@ -233,15 +277,22 @@
                     <div class="absolute left-[11px] top-1 w-3 h-3 md:left-1/2 md:-ml-[5px] bg-card border-2 border-slate-500 group-hover:border-accent rounded-full z-10 transition-colors duration-300"></div>
                     <div class="md:w-[calc(50%-2rem)] md:mr-auto bg-card p-6 rounded-xl border border-slate-700 shadow-lg transform transition-all duration-300 hover:-translate-y-1 hover:shadow-accent/20 hover:border-accent">
                         <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                            <h4 class="text-xl font-bold text-white">Gardiyan Sistem Güvenlik Teknolojileri A.Ş.</h4>
+                            <h4 class="text-xl font-bold text-white">Gardiyan <span class="lang-tr">Sistem Güvenlik Teknolojileri A.Ş.</span><span class="lang-en hidden">System Security Technologies Inc.</span></h4>
                             <span class="text-slate-400 text-sm font-medium bg-slate-900/50 px-2 py-1 rounded">Şubat 2025 – Kasım 2025</span>
                         </div>
                         <p class="text-accent font-medium mb-4">Java Backend Developer</p>
                         <ul class="list-disc list-outside ml-4 space-y-2 text-slate-400 text-sm">
-                            <li>Java Spring ile uzak sunuculara bağlantı yapılan ve bu kayıtların loglarını tutan projede geliştirmeler yapma görevini üstlendim. CI/CD süreçlerinde Jira, Bitbucket, Docker, Jenkins gibi teknolojilerle çalıştım.</li>
-                            <li>Java Spring Boot ile 3.Parti Raporlama uygulaması olan Superset entegrasyonu gerçekleştirdim. Projenin iskeletinin oluşturulması ve CI/CD Dockerize etme süreçlerinde rol aldım.</li>
-                            <li>Java Spring Boot ile Epilepsi hastalarına yönelik geliştirilen yapay zeka destekli bir projede uçtan uca backend hizmeti sağlamak üzere geliştirme süreçlerinde rol aldım. Proje özelinde Keycloak, Firebase, Python(Pytorch,pandas,numpy), Docker, Jenkins, PostgreSQL gibi teknolojilerle çalıştım.</li>
-                            <li>Efektif olarak kullandığım yapay zeka tool’ları arasında GitHub Copilot, Cursor AI Code Editor ve n8n teknolojileri bulunmakta.</li>
+                            <li class="lang-tr">Java Spring ile uzak sunuculara bağlantı yapılan ve bu kayıtların loglarını tutan projede geliştirmeler yapma görevini üstlendim. CI/CD süreçlerinde Jira, Bitbucket, Docker, Jenkins gibi teknolojilerle çalıştım.</li>
+                            <li class="lang-en hidden">Undertook the task of developing projects connecting to remote servers and keeping their logs using Java Spring. Worked with technologies like Jira, Bitbucket, Docker, Jenkins in CI/CD processes.</li>
+                            
+                            <li class="lang-tr">Java Spring Boot ile 3.Parti Raporlama uygulaması olan Superset entegrasyonu gerçekleştirdim. Projenin iskeletinin oluşturulması ve CI/CD Dockerize etme süreçlerinde rol aldım.</li>
+                            <li class="lang-en hidden">Realized Superset integration, a 3rd party reporting application with Java Spring Boot. Played a role in creating the project skeleton and CI/CD Dockerization processes.</li>
+                            
+                            <li class="lang-tr">Java Spring Boot ile Epilepsi hastalarına yönelik geliştirilen yapay zeka destekli bir projede uçtan uca backend hizmeti sağlamak üzere geliştirme süreçlerinde rol aldım. Proje özelinde Keycloak, Firebase, Python(Pytorch,pandas,numpy), Docker,Jenkins, PostgreSQL gibi teknolojilerle çalıştım.</li>
+                            <li class="lang-en hidden">Took part in development processes to provide end-to-end backend services in an AI-supported project developed for epilepsy patients using Java Spring Boot. Worked with technologies such as Keycloak, Firebase, Python (Pytorch, pandas, numpy), Docker, Jenkins, PostgreSQL specifically for the project.</li>
+                            
+                            <li class="lang-tr">Efektif olarak kullandığım yapay zeka tool’ları arasında GitHub Copilot, Cursor AI Code Editor ve n8n teknolojileri bulunmakta.</li>
+                            <li class="lang-en hidden">The AI tools I use effectively include GitHub Copilot, Cursor AI Code Editor, and n8n.</li>
                         </ul>
                     </div>
                 </div>
@@ -254,14 +305,28 @@
                             <h4 class="text-xl font-bold text-white">Akinon</h4>
                             <span class="text-slate-400 text-sm font-medium bg-slate-900/50 px-2 py-1 rounded">Ağustos 2022 – Ekim 2024</span>
                         </div>
-                        <p class="text-purple-400 font-medium mb-4">Backend Developer & Backend Team Lead</p>
+                        <p class="text-purple-400 font-medium mb-4">Backend Developer & <span class="lang-tr">Backend Team Lead</span><span class="lang-en hidden">Backend Team Lead</span></p>
                         <ul class="list-disc list-outside ml-4 space-y-2 text-slate-400 text-sm">
-                            <li>Lacoste, Gant, Converse, Superstep, Occasion, Sanal Çadır, Intersport, Fashfed, The Kooples ve Nautica gibi projelerin olduğu takımların liderlik görevini üstlendim.</li>
-                            <li>Mikroservis ve monolit mimariler kullanılan sistemlerde; sms gateway, subscription gateway ve payment gateway geliştirme konusunda ekibime liderlik ettim.</li>
-                            <li>CI/CD süreçleri için Jira, Bitbucket, Git, Docker, Kubernetes gibi süreç yönetim sistemleriyle çalıştım.</li>
-                            <li>Log takibinde Sentry, Prometheus, Flower gibi log takip sistemleriyle çalıştım.</li>
-                            <li>Birçok servis için Unit ve entegrasyon testleri yazdım ve review ettim.</li>
-                            <li>SOLID, Strategy, DRY, Factory, Singleton ve MVT tasarım desenleri ile çalışarak projeler mimarilerine katkıda bulundum.</li>
+                            <li class="lang-tr">Lacoste, Gant, Converse, Superstep, Occasion, Sanal Çadır, Intersport, Fashfed, The Kooples ve Nautica gibi projelerin olduğu takımların liderlik görevini üstlendim.</li>
+                            <li class="lang-en hidden">Led teams for projects including Lacoste, Gant, Converse, Superstep, Occasion, Sanal Çadır, Intersport, Fashfed, The Kooples, and Nautica.</li>
+                            
+                            <li class="lang-tr">Mikroservis ve monolit mimariler kullanılan sistemlerde; sms gateway, subscription gateway ve payment gateway geliştirme konusunda ekibime liderlik ettim.</li>
+                            <li class="lang-en hidden">Led my team in developing sms gateway, subscription gateway, and payment gateway in systems using microservice and monolithic architectures.</li>
+                            
+                            <li class="lang-tr">CI/CD süreçleri için Jira, Bitbucket, Git, Docker, Kubernetes gibi süreç yönetim sistemleriyle çalıştım.</li>
+                            <li class="lang-en hidden">Worked with process management systems such as Jira, Bitbucket, Git, Docker, Kubernetes for CI/CD processes.</li>
+                            
+                            <li class="lang-tr">Log takibinde Sentry, Prometheus, Flower gibi log takip sistemleriyle çalıştım.</li>
+                            <li class="lang-en hidden">Worked with log tracking systems such as Sentry, Prometheus, and Flower for log monitoring.</li>
+                            
+                            <li class="lang-tr">Proje geliştirme ve bakımında Django, Python, Celery, Docker, Postman, PostgreSQL gibi teknolojiler kullandım.</li>
+                            <li class="lang-en hidden">Used technologies such as Django, Python, Celery, Docker, Postman, and PostgreSQL for project development and maintenance.</li>
+                            
+                            <li class="lang-tr">Birçok servis için Unit ve entegrasyon testleri yazdım ve review ettim.</li>
+                            <li class="lang-en hidden">Wrote and reviewed unit and integration tests for many services.</li>
+                            
+                            <li class="lang-tr">SOLID, Strategy, DRY, Factory, Singleton ve MVT tasarım desenleri ile çalışarak projeler mimarilerine katkıda bulundum.</li>
+                            <li class="lang-en hidden">Contributed to project architectures by working with SOLID, Strategy, DRY, Factory, Singleton, and MVT design patterns.</li>
                         </ul>
                     </div>
                 </div>
@@ -276,9 +341,20 @@
                         </div>
                         <p class="text-white font-medium mb-4">Full Stack Developer</p>
                         <ul class="list-disc list-outside ml-4 space-y-2 text-slate-400 text-sm">
-                            <li>Java ve Spring Boot Framework ve ReactJs kullanarak uzaktan bebek küvözlerini yönetmek için proje geliştirdim. Proje, kullanıcıların bebek inkübatörlerinin durumunu gerçek zamanlı olarak izlemelerine olanak tanıyan REST API'ler içeriyor.</li>
-                            <li>WebSocket teknolojisi ile birlikte, performansı artırmak için asenkron işlem yönetimi ve güvenli veri iletimi gibi özellikler entegre ettim.</li>
-                            <li>Java ve Spring Boot Framework ve ReactJs Chart.js kullanarak cihazların arıza takibi için rapor sunan proje geliştirdim. Fabrika çalışanlarından alınan verim etkili raporlama sayesinde yüzde 30 oranında artış gösterdi.</li>
+                            <li class="lang-tr">Java ve Spring Boot Framework ve ReactJs kullanarak uzaktan bebek küvözlerini yönetmek için proje geliştirdim.</li>
+                            <li class="lang-en hidden">Developed a project to manage remote baby incubators using Java, Spring Boot Framework, and ReactJs.</li>
+                            
+                            <li class="lang-tr">Proje, kullanıcıların bebek inkübatörlerinin durumunu gerçek zamanlı olarak izlemelerine olanak tanıyan REST API'ler içeriyor.</li>
+                            <li class="lang-en hidden">The project includes REST APIs that allow users to monitor the status of baby incubators in real-time.</li>
+                            
+                            <li class="lang-tr">WebSocket teknolojisi ile birlikte, performansı artırmak için asenkron işlem yönetimi ve güvenli veri iletimi gibi özellikler entegre ettim.</li>
+                            <li class="lang-en hidden">Along with WebSocket technology, I integrated features such as asynchronous process management and secure data transmission to increase performance.</li>
+                            
+                            <li class="lang-tr">Java ve Spring Boot Framework ve ReactJs Chart.js kullanarak cihazların arıza takibi için rapor sunan proje geliştirdim.</li>
+                            <li class="lang-en hidden">Developed a project that reports for device failure tracking using Java, Spring Boot Framework, and ReactJs Chart.js.</li>
+                            
+                            <li class="lang-tr">Fabrika çalışanlarından alınan verim etkili raporlama sayesinde yüzde 30 oranında artış gösterdi.</li>
+                            <li class="lang-en hidden">Efficiency taken from factory workers increased by 30% thanks to effective reporting.</li>
                         </ul>
                     </div>
                 </div>
@@ -293,9 +369,14 @@
                         </div>
                         <p class="text-white font-medium mb-4">Software Developer</p>
                         <ul class="list-disc list-outside ml-4 space-y-2 text-slate-400 text-sm">
-                            <li>E-Fatura, E-İhracat ve E-İrsaliye gibi sistemler için entegrasyonlar geliştirmekti.</li>
-                            <li>SOAP Web Hizmetleri ile çalışarak deneyimler kazandım.</li>
-                            <li>Nesne Yönelimli Programlama ilkeleri ile kod geliştirme deneyimi kazandım.</li>
+                            <li class="lang-tr">E-Fatura, E-İhracat ve E-İrsaliye gibi sistemler için entegrasyonlar geliştirmekti.</li>
+                            <li class="lang-en hidden">Developed integrations for systems such as E-Invoice, E-Export, and E-Dispatch.</li>
+                            
+                            <li class="lang-tr">SOAP Web Hizmetleri ile çalışarak deneyimler kazandım.</li>
+                            <li class="lang-en hidden">Gained experience working with SOAP Web Services.</li>
+                            
+                            <li class="lang-tr">Nesne Yönelimli Programlama ilkeleri ile kod geliştirme deneyimi kazandım.</li>
+                            <li class="lang-en hidden">Gained code development experience with Object-Oriented Programming principles.</li>
                         </ul>
                     </div>
                 </div>
@@ -309,7 +390,9 @@
             <!-- Education -->
             <div class="bg-card p-8 rounded-2xl border border-slate-700 hover:border-yellow-500 transition-colors duration-300">
                 <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-graduation-cap text-yellow-500"></i> Eğitim
+                    <i class="fa-solid fa-graduation-cap text-yellow-500"></i> 
+                    <span class="lang-tr">Eğitim</span>
+                    <span class="lang-en hidden">Education</span>
                 </h3>
                 <div class="space-y-6">
                     <div class="flex gap-4">
@@ -317,8 +400,14 @@
                             🎓
                         </div>
                         <div>
-                            <h4 class="text-lg font-bold text-white">Kırıkkale Üniversitesi</h4>
-                            <p class="text-slate-400">Bilgisayar Mühendisliği</p>
+                            <h4 class="text-lg font-bold text-white">
+                                <span class="lang-tr">Kırıkkale Üniversitesi</span>
+                                <span class="lang-en hidden">Kirikkale University</span>
+                            </h4>
+                            <p class="text-slate-400">
+                                <span class="lang-tr">Bilgisayar Mühendisliği</span>
+                                <span class="lang-en hidden">Computer Engineering</span>
+                            </p>
                             <span class="text-xs text-yellow-500 bg-yellow-500/10 px-2 py-0.5 rounded mt-1 inline-block">Eylül 2013 – Eylül 2019</span>
                         </div>
                     </div>
@@ -328,21 +417,36 @@
             <!-- Courses & Certs -->
             <div class="bg-card p-8 rounded-2xl border border-slate-700 hover:border-green-500 transition-colors duration-300">
                 <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-certificate text-green-500"></i> Kurs & Sertifika
+                    <i class="fa-solid fa-certificate text-green-500"></i> 
+                    <span class="lang-tr">Kurs & Sertifika</span>
+                    <span class="lang-en hidden">Courses & Certificates</span>
                 </h3>
                 <div class="mb-4">
-                    <h4 class="text-lg font-bold text-white">Bulut Bilişim Uzmanlığı (İŞKUR)</h4>
+                    <h4 class="text-lg font-bold text-white">
+                        <span class="lang-tr">Bulut Bilişim Uzmanlığı (İŞKUR)</span>
+                        <span class="lang-en hidden">Cloud Computing Expertise (ISKUR)</span>
+                    </h4>
                     <span class="text-sm text-slate-400">Kasım 2019 - Ocak 2020</span>
-                    <p class="text-slate-400 text-sm mt-2">Proje: Bulut Sözlük</p>
+                    
+                    <p class="text-slate-400 text-sm mt-2">
+                        <span class="lang-tr">Proje: Bulut Sözlük</span>
+                        <span class="lang-en hidden">Project: Cloud Dictionary</span>
+                    </p>
+                    
                     <div class="text-xs text-slate-500 mt-2">
                         <span class="block"><strong class="text-slate-300">Backend:</strong> Java Spring</span>
                         <span class="block"><strong class="text-slate-300">Frontend:</strong> JavaScript, HTML, CSS</span>
-                        <span class="block"><strong class="text-slate-300">Veritabanı:</strong> PostgreSQL</span>
+                        <span class="block"><strong class="text-slate-300">Database:</strong> PostgreSQL</span>
                     </div>
-                    <p class="text-slate-400 text-sm mt-2">Kullanıcı etkileşimi sağlayan bir sözlük uygulaması. Git kullanımı öğrenildi ve aktif olarak kullanıldı.</p>
+                    <p class="text-slate-400 text-sm mt-2 lang-tr">Kullanıcı etkileşimi sağlayan bir sözlük uygulaması. Git kullanımı öğrenildi ve aktif olarak kullanıldı.</p>
+                    <p class="text-slate-400 text-sm mt-2 lang-en hidden">A dictionary application providing user interaction. Git usage was learned and actively used.</p>
+                    
                     <div class="mt-3">
-                        <span class="inline-block bg-green-500/10 text-green-400 text-xs px-2 py-1 rounded border border-green-500/20">Bulut Bilişim Uzmanlığı</span>
-                        <span class="inline-block bg-green-500/10 text-green-400 text-xs px-2 py-1 rounded border border-green-500/20">DB Administrator (Microsoft)</span>
+                        <span class="lang-tr inline-block bg-green-500/10 text-green-400 text-xs px-2 py-1 rounded border border-green-500/20">Bulut Bilişim Uzmanlığı</span>
+                        <span class="lang-tr inline-block bg-green-500/10 text-green-400 text-xs px-2 py-1 rounded border border-green-500/20">DB Administrator (Microsoft)</span>
+                        
+                        <span class="lang-en hidden inline-block bg-green-500/10 text-green-400 text-xs px-2 py-1 rounded border border-green-500/20">Cloud Computing Expertise</span>
+                        <span class="lang-en hidden inline-block bg-green-500/10 text-green-400 text-xs px-2 py-1 rounded border border-green-500/20">DB Administrator (Microsoft)</span>
                     </div>
                 </div>
             </div>
@@ -351,7 +455,9 @@
         <!-- Languages -->
         <section class="mb-16 animate-fade-in-up" style="animation-delay: 0.5s;">
             <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <i class="fa-solid fa-language text-purple-400"></i> Yabancı Diller
+                <i class="fa-solid fa-language text-purple-400"></i> 
+                <span class="lang-tr">Yabancı Diller</span>
+                <span class="lang-en hidden">Languages</span>
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <!-- Turkish -->
@@ -375,18 +481,67 @@
 
         <!-- Footer -->
         <footer class="text-center text-slate-500 text-sm py-8 border-t border-slate-800">
-            <p>&copy; 2024 Ali Abbas Tatlı. All rights reserved.</p>
+            <p>&copy; 2026 Ali Abbas Tatlı. <span class="lang-tr">Tüm hakları saklıdır.</span><span class="lang-en hidden">All rights reserved.</span></p>
             <div class="mt-2 flex justify-center gap-4">
-                <a href="mailto:aliabbastatli@yandex.com" class="hover:text-primary transition-colors">Contact Me</a>
+                <a href="mailto:aliabbastatli@yandex.com" class="hover:text-primary transition-colors">
+                    <span class="lang-tr">İletişime Geç</span><span class="lang-en hidden">Contact Me</span>
+                </a>
             </div>
         </footer>
 
     </main>
 
-    <!-- JavaScript for Animations -->
+    <!-- JavaScript for Language Switching -->
     <script>
+        function switchLanguage(lang) {
+            // Get elements
+            const trElements = document.querySelectorAll('.lang-tr');
+            const enElements = document.querySelectorAll('.lang-en');
+            const btnTr = document.getElementById('btn-tr');
+            const btnEn = document.getElementById('btn-en');
+
+            // Toggle Turkish
+            if (lang === 'tr') {
+                trElements.forEach(el => {
+                    el.classList.remove('hidden');
+                });
+                enElements.forEach(el => {
+                    el.classList.add('hidden');
+                });
+
+                // Update Button Styles
+                btnTr.classList.add('bg-primary', 'text-white', 'shadow-md');
+                btnTr.classList.remove('text-slate-400', 'hover:text-white');
+                
+                btnEn.classList.remove('bg-primary', 'text-white', 'shadow-md');
+                btnEn.classList.add('text-slate-400', 'hover:text-white');
+
+                // Set html lang attribute
+                document.documentElement.lang = 'tr';
+            } 
+            // Toggle English
+            else if (lang === 'en') {
+                trElements.forEach(el => {
+                    el.classList.add('hidden');
+                });
+                enElements.forEach(el => {
+                    el.classList.remove('hidden');
+                });
+
+                // Update Button Styles
+                btnEn.classList.add('bg-primary', 'text-white', 'shadow-md');
+                btnEn.classList.remove('text-slate-400', 'hover:text-white');
+                
+                btnTr.classList.remove('bg-primary', 'text-white', 'shadow-md');
+                btnTr.classList.add('text-slate-400', 'hover:text-white');
+
+                // Set html lang attribute
+                document.documentElement.lang = 'en';
+            }
+        }
+
+        // Initialize Animations (Reuse from previous code)
         document.addEventListener('DOMContentLoaded', () => {
-            // Intersection Observer for Fade In Animation
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: "0px 0px -50px 0px"
@@ -396,18 +551,16 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('animate-fade-in-up');
-                        entry.target.style.opacity = '1'; // Ensure it stays visible
-                        observer.unobserve(entry.target); // Run once
+                        entry.target.style.opacity = '1'; 
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
-            // Select elements to animate
             const animatedElements = document.querySelectorAll('section, header');
             animatedElements.forEach(el => {
-                // Only hide if not already animated by inline style (to handle header specifically)
                 if(!el.classList.contains('animate-fade-in-up')) {
-                     el.style.opacity = '0'; // Start hidden
+                     el.style.opacity = '0'; 
                      observer.observe(el);
                 }
             });
